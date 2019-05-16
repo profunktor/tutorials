@@ -31,4 +31,12 @@ object ParTask {
       }
     }
 
+  def parFailFastWithHandlerAlt[F[_]: Concurrent: Par, G[_]: Traverse, A](
+      gfa: G[F[A]],
+      handler: PartialFunction[Throwable, F[A]]
+  ): F[G[A]] =
+    gfa.parTraverse { fa =>
+      fa.recoverWith(handler).uncancelable
+    }
+
 }
