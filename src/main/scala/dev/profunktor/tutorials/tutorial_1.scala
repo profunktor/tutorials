@@ -30,9 +30,7 @@ object tutorial_1 extends IOApp {
   }
 
   def parFailFast[A](gfa: List[IO[A]]): IO[List[A]] =
-    gfa.parTraverse { fa =>
-      fa.recoverWith(handler).uncancelable
-    }
+    gfa.parTraverse(_.recoverWith(handler).uncancelable)
 
   def parFailFastAlt[A](gfa: List[IO[A]]): IO[List[A]] =
     gfa.parTraverse { fa =>
