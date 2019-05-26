@@ -1,4 +1,4 @@
-package dev.profunktor.tutorials
+package dev.profunktor.tutorials.t1
 
 import java.util.concurrent.TimeUnit
 import scalaz.zio._
