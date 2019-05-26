@@ -1,4 +1,4 @@
-package dev.profunktor.tutorials
+package dev.profunktor.tutorials.t1
 
 import cats.effect._
 import cats.effect.concurrent.Deferred
